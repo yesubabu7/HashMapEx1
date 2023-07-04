@@ -1,0 +1,39 @@
+package helloworld;
+import java.util.*;
+public class HashmapEx1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashMap<String,HashMap<String,Book>> h=new HashMap<>();
+		HashMap<String,Book> h1=new HashMap<>();
+		Book b=new Book(123,"aaa","bbb","ccc");
+		Book b1=new Book(321,"ddd","eee","ccc");
+		h1.put("CSE",b);
+		h1.put("ECE",b1);
+		h.put("department", h1);
+		for (Map.Entry<String,HashMap<String,Book>> entry : h.entrySet()) {
+			//System.out.println(entry.getValue());
+		}
+		
+		for (String s : h1.keySet()){
+			
+			Book bb=h1.get(s);
+            System.out.println("branch-----> "+s+":: id--> " + bb.id+"\tbook1-->"+bb.s1+"\tbook2-->"+bb.s2+"\tbook3-->"+bb.s3);
+	}
+
+}
+}
+class Book{
+	int id;
+	String s1;
+	String s2;
+	String s3;
+	Book(int i,String s1, String s2,String s3){
+		id=i;
+		this.s1=s1;
+		this.s2=s2;
+		this.s3=s3;
+	}
+	
+	
+}
